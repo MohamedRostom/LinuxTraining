@@ -8,6 +8,7 @@ $gcc -E FirstAssignment.c > FirstAssignment.i
 $gcc -S FirstAssignment.i
 $gcc -c FirstAssignment.s
 $gcc -o FirstAssignment FirstAssignment.o
+
 ### Example of output
 Enter your statment : I had Finished first task in linux training
 You said: I had Finished first task in linux training
