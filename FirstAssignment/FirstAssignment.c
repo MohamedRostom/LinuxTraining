@@ -24,7 +24,8 @@ int main()
 			printf("Exiting, Goodbye......... \n");
 			return 0;
 		}*/
-		if((str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
+		//printf("Length = %ld, %ld \t last char = %c",strlen(str),strlen(exit),str[4]); 
+		if((strlen(str)==(strlen(exit)+1))&&(str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
 		{
                	        printf("Exiting, Goodbye......... \n");
                         return 0;

@@ -19,52 +19,66 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$1024, %rsp
+	pushq	%rbx
+	subq	$1032, %rsp
+	.cfi_offset 3, -24
 	movq	%fs:40, %rax
-	movq	%rax, -8(%rbp)
+	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
-	movl	$1953069157, -1013(%rbp)
-	movb	$0, -1009(%rbp)
-	movl	$0, -1020(%rbp)
+	movl	$1953069157, -1029(%rbp)
+	movb	$0, -1025(%rbp)
+	movl	$0, -1036(%rbp)
 .L4:
 	leaq	.LC0(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	movq	stdin(%rip), %rdx
-	leaq	-1008(%rbp), %rax
+	leaq	-1024(%rbp), %rax
 	movl	$1000, %esi
 	movq	%rax, %rdi
 	call	fgets@PLT
-	leaq	-1008(%rbp), %rax
+	leaq	-1024(%rbp), %rax
 	movq	%rax, %rsi
 	leaq	.LC1(%rip), %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movzbl	-1008(%rbp), %edx
-	movzbl	-1013(%rbp), %eax
+	leaq	-1024(%rbp), %rax
+	movq	%rax, %rdi
+	call	strlen@PLT
+	movq	%rax, %rbx
+	leaq	-1029(%rbp), %rax
+	movq	%rax, %rdi
+	call	strlen@PLT
+	addq	$1, %rax
+	cmpq	%rax, %rbx
+	jne	.L4
+	movzbl	-1024(%rbp), %edx
+	movzbl	-1029(%rbp), %eax
 	cmpb	%al, %dl
 	jne	.L4
-	movzbl	-1007(%rbp), %edx
-	movzbl	-1012(%rbp), %eax
+	movzbl	-1023(%rbp), %edx
+	movzbl	-1028(%rbp), %eax
 	cmpb	%al, %dl
 	jne	.L4
-	movzbl	-1006(%rbp), %edx
-	movzbl	-1011(%rbp), %eax
+	movzbl	-1022(%rbp), %edx
+	movzbl	-1027(%rbp), %eax
 	cmpb	%al, %dl
 	jne	.L4
-	movzbl	-1005(%rbp), %edx
-	movzbl	-1010(%rbp), %eax
+	movzbl	-1021(%rbp), %edx
+	movzbl	-1026(%rbp), %eax
 	cmpb	%al, %dl
 	jne	.L4
 	leaq	.LC2(%rip), %rdi
 	call	puts@PLT
 	movl	$0, %eax
-	movq	-8(%rbp), %rcx
+	movq	-24(%rbp), %rcx
 	xorq	%fs:40, %rcx
 	je	.L5
 	call	__stack_chk_fail@PLT
 .L5:
-	leave
+	addq	$1032, %rsp
+	popq	%rbx
+	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc

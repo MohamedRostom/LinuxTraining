@@ -1021,8 +1021,8 @@ int main()
 # 13 "FirstAssignment.c"
                           );
   printf("You said: %s\n",str);
-# 27 "FirstAssignment.c"
-  if((str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
+# 28 "FirstAssignment.c"
+  if((strlen(str)==(strlen(exit)+1))&&(str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
   {
                         printf("Exiting, Goodbye......... \n");
                         return 0;
