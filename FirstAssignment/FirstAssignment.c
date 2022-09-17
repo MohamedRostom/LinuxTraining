@@ -9,9 +9,9 @@ int main()
 	int i=0;
 	while(1)
 	{
-		printf("Enter your statment:");
+		printf("Enter your statment : ");
 		fgets(str,MAX_Limit,stdin);
-		printf("%s\n",str);
+		printf("You said: %s\n",str);
 		/*for(i=0;i<4;i++)
 		{
 			if(str[i]==exit[i])
@@ -21,12 +21,12 @@ int main()
 		}
 		if(i==4)
 		{
-			printf("Exiting, Goodbye");
+			printf("Exiting, Goodbye......... \n");
 			return 0;
 		}*/
 		if((str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
 		{
-               	        printf("Exiting, Goodbye");
+               	        printf("Exiting, Goodbye......... \n");
                         return 0;
                 }
 		else

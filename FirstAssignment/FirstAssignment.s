@@ -2,9 +2,11 @@
 	.text
 	.section	.rodata
 .LC0:
-	.string	"Enter your statment:"
+	.string	"Enter your statment : "
 .LC1:
-	.string	"Exiting, Goodbye"
+	.string	"You said: %s\n"
+.LC2:
+	.string	"Exiting, Goodbye......... "
 	.text
 	.globl	main
 	.type	main, @function
@@ -34,8 +36,10 @@ main:
 	movq	%rax, %rdi
 	call	fgets@PLT
 	leaq	-1008(%rbp), %rax
-	movq	%rax, %rdi
-	call	puts@PLT
+	movq	%rax, %rsi
+	leaq	.LC1(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
 	movzbl	-1008(%rbp), %edx
 	movzbl	-1013(%rbp), %eax
 	cmpb	%al, %dl
@@ -52,9 +56,8 @@ main:
 	movzbl	-1010(%rbp), %eax
 	cmpb	%al, %dl
 	jne	.L4
-	leaq	.LC1(%rip), %rdi
-	movl	$0, %eax
-	call	printf@PLT
+	leaq	.LC2(%rip), %rdi
+	call	puts@PLT
 	movl	$0, %eax
 	movq	-8(%rbp), %rcx
 	xorq	%fs:40, %rcx
