@@ -12,7 +12,7 @@ int main()
 		printf("Enter your statment:");
 		fgets(str,MAX_Limit,stdin);
 		printf("%s\n",str);
-		for(i=0;i<4;i++)
+		/*for(i=0;i<4;i++)
 		{
 			if(str[i]==exit[i])
 				continue;
@@ -23,7 +23,14 @@ int main()
 		{
 			printf("Exiting, Goodbye");
 			return 0;
-		}
+		}*/
+		if((str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
+		{
+               	        printf("Exiting, Goodbye");
+                        return 0;
+                }
+		else
+			continue;
 	}
 	return 0;
 }
