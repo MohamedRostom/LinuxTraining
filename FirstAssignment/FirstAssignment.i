@@ -1009,26 +1009,25 @@ extern char *stpncpy (char *__restrict __dest,
 # 5 "FirstAssignment.c"
 int main()
 {
- char str[1000];
- char exit[]="exit";
- int i=0;
- while(1)
- {
-  printf("Enter your statment : ");
-  fgets(str,1000,
-# 13 "FirstAssignment.c" 3 4
-                     stdin
-# 13 "FirstAssignment.c"
-                          );
-  printf("You said: %s\n",str);
-# 28 "FirstAssignment.c"
-  if((strlen(str)==(strlen(exit)+1))&&(str[0]==exit[0])&&(str[1]==exit[1])&&(str[2]==exit[2])&&(str[3]==exit[3]))
-  {
-                        printf("Exiting, Goodbye......... \n");
-                        return 0;
-                }
-  else
-   continue;
- }
- return 0;
+    char str[1000];
+    char exit[] = "exit";
+    int i = 0;
+    while (1) {
+ printf("Enter your statment : ");
+ fgets(str, 1000, 
+# 12 "FirstAssignment.c" 3 4
+                      stdin
+# 12 "FirstAssignment.c"
+                           );
+ printf("You said: %s\n", str);
+# 27 "FirstAssignment.c"
+ if ((strlen(str) == (strlen(exit) + 1)) && (str[0] == exit[0])
+     && (str[1] == exit[1]) && (str[2] == exit[2])
+     && (str[3] == exit[3])) {
+     printf("Exiting, Goodbye......... \n");
+     return 0;
+ } else
+     continue;
+    }
+    return 0;
 }
