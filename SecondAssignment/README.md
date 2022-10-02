@@ -1,8 +1,8 @@
-###Implementation of linux commands
+### Implementation of linux commands
 #### myEcho.c
 **echo** (printing all input strings)
-> compilation command : gcc -o myEcho myEcho.c
-> running command : ./myEcho string1 string2 string3 .....
+compilation command : gcc -o myEcho myEcho.c
+running command : ./myEcho string1 string2 string3 .....
 > result :
 ```
 Checking argments program start
@@ -16,8 +16,8 @@ Program is finished
 
 #### myPWD.c
 **pwd** (printing the working path)
-> compilation command : gcc -o myPWD myPWD.c
-> running command : ./myPWD
+compilation command : gcc -o myPWD myPWD.c
+running command : ./myPWD
 > result :
 ```
 Getting my working path program start
@@ -27,8 +27,8 @@ Program is finished
 
 #### myCp.c
 **cp** (copying files)
-> compilation command : gcc -o myCp myCp.c
-> running command : ./myCp test.txt test1.txt
+compilation command : gcc -o myCp myCp.c
+running command : ./myCp test.txt test1.txt
 > result :
 ```
 Copying program start.
@@ -46,8 +46,8 @@ Program finished
 
 #### myMv.c
 **mv** (moving files)
-> compilation command : gcc -o myMv myMv.c
-> running command : ./myMv test.txt test1.txt
+compilation command : gcc -o myMv myMv.c
+running command : ./myMv test.txt test1.txt
 > result :
 ```
 Copying program start.
