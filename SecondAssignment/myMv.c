@@ -15,15 +15,14 @@ int main(int argv, char **argc)
     char bufferPath[MAX_SIZE];
     printf("Copying program start.\n");
     // Getting working directory path
-    getcwd(bufferPath,MAX_SIZE);
+    getcwd(bufferPath, MAX_SIZE);
     // Checking on the return of getcwd not equal null
-    if(strlen(bufferPath)<=0){
-	    printf("Error getting path.\n");
-	    return -1;
-    }
-    else{
-	    strcat(bufferPath,"/");
-	    printf("working path: %s .\n",bufferPath);
+    if (strlen(bufferPath) <= 0) {
+	printf("Error getting path.\n");
+	return -1;
+    } else {
+	strcat(bufferPath, "/");
+	printf("working path: %s .\n", bufferPath);
     }
     // Checking on input arguments.
     if (argv < 3) {
@@ -37,8 +36,7 @@ int main(int argv, char **argc)
 	printf("Source file is not exists.\n");
 	return -1;
     }
-    int flagDestinationFile =
-	open(argc[2], O_WRONLY | O_CREAT, S_IRWXU);
+    int flagDestinationFile = open(argc[2], O_WRONLY | O_CREAT, S_IRWXU);
     // Checking on openning or creating destination file.
     if (flagDestinationFile < 0) {
 	printf("Can't create a destination file.\n");
@@ -59,12 +57,11 @@ int main(int argv, char **argc)
     if (writeFlag < 0) {
 	printf("Error in writing destinaiton file.\n");
 	return -1;
-    }
-    else{
-	    printf("Copying file in progress (%d KB).\n",progressCount);
+    } else {
+	printf("Copying file in progress (%d KB).\n", progressCount);
     }
     // Looping to read and write all data according to buffer size.
-    while ((countFlag = read(flagSourceFile, buffer,MAX_SIZE)) > 0) {
+    while ((countFlag = read(flagSourceFile, buffer, MAX_SIZE)) > 0) {
 	// Calculate progress
 	progressCount += countFlag;
 	//printf("Copying file in progress (%d KB).\n",progressCount);
@@ -74,9 +71,8 @@ int main(int argv, char **argc)
 	if (writeFlag < 0) {
 	    printf("Error in writing destinaiton file.\n");
 	    return -1;
-	}
-	else{
-		printf("Copying file in progress (%d KB).\n",progressCount);
+	} else {
+	    printf("Copying file in progress (%d KB).\n", progressCount);
 	}
     }
     int closeSourceFileFlag = close(flagSourceFile);
@@ -92,12 +88,12 @@ int main(int argv, char **argc)
 	return -1;
     }
 
-    int removeFlag = remove(strcat(bufferPath,argc[1]));
+    int removeFlag = remove(strcat(bufferPath, argc[1]));
     //printf("file path: %s \n",strcat(bufferPath,argc[1]));
     //int removeFlag = remove(argc[1]);
-    if(removeFlag!=0){
-	    printf("Error removing source file.\n");
-	    return -1;
+    if (removeFlag != 0) {
+	printf("Error removing source file.\n");
+	return -1;
     }
     printf("Program is finished\n");
     return RET;
