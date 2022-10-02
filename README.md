@@ -5,3 +5,4 @@ Linux training assignments
 ### Echo every entered strings with one exit condition
 
 ## Second assigmnent	@28-9-2022	mrostom
+### Implementation of 4 linux (echo - pwd - cp - mv)
